@@ -1,0 +1,29 @@
+# === General ===
+node_modules/
+.env
+.DS_Store
+Thumbs.db
+
+# === Backend ===
+/backend/node_modules/
+/backend/dist/
+/backend/.env
+/backend/.cache/
+/backend/logs/
+/backend/tmp/
+
+# === Frontend ===
+/frontend/node_modules/
+/frontend/.env
+/frontend/.next/
+/frontend/out/
+/frontend/build/
+/frontend/.cache/
+/frontend/.turbo/
+
+# === IDEs and editors ===
+.vscode/
+.idea/
+*.swp
+*.sublime*
+
