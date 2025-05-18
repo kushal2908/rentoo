@@ -16,7 +16,7 @@ enum Role {
     SUPER_ADMIN
 }
 
-enum Status {
+enum UserAccountStatus {
     ACTIVE
     INACTIVE
     PENDING
@@ -34,14 +34,9 @@ enum VerificationType {
     PASSWORD_RESET
 }
 
-enum LoginAttemptStatus {
-    SUCCESS
-    FAILURE
-}
-
 enum AuthStatus {
-    LOGGED_IN
-    LOGGED_OUT
+    SIGNED_IN
+    SIGNED_OUT
 }
 
 model User {
@@ -52,7 +47,7 @@ model User {
     phone                   String?                   @unique
     password                String
     role                    Role                      @default(USER)
-    status                  Status                    @default(INACTIVE)
+    status                  UserAccountStatus         @default(ACTIVE)
     createdAt               DateTime                  @default(now())
     updatedAt               DateTime                  @updatedAt
     authHistory             AuthHistory[]
@@ -60,18 +55,18 @@ model User {
 }
 
 model AuthHistory {
-    id            String             @id @default(cuid())
-    userId        String
-    user          User               @relation(fields: [userId], references: [id])
-    authStatus    AuthStatus         @default(LOGGED_IN)
-    attemptStatus LoginAttemptStatus @default(SUCCESS)
-    ip            String
-    device        String
-    createdAt     DateTime           @default(now())
+    id          Int        @id @default(autoincrement())
+    userId      String
+    user        User       @relation(fields: [userId], references: [id])
+    status      AuthStatus @default(SIGNED_IN)
+    ip          String
+    device      String
+    signedInAt  DateTime   @default(now())
+    signedOutAt DateTime?
 }
 
 model AuthVerificationHistory {
-    id               String           @id @default(cuid())
+    id               Int              @id @default(autoincrement())
     userId           String
     verificationType VerificationType @default(ACCOUNT_VERIFICATION)
     verificationCode String

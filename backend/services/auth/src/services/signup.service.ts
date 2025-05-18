@@ -24,11 +24,10 @@ const signUpService = async (req: Request, res: Response): Promise<any> => {
     const user = await prisma.user.create({
         data: {
             ...body.data,
-            phone: body?.data.phone ?? '',
             password: hashedPassword,
         },
     });
 
-    return SUCCESS_RESPONSE(res, 'User created', user);
+    return SUCCESS_RESPONSE(res, 'User created');
 };
 export default signUpService;
