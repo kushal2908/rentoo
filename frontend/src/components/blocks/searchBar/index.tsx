@@ -13,11 +13,11 @@ type Props = {};
 
 export default function SearchBar({}: Props) {
     return (
-        <div className="md:border md:border-gray-200 rounded-lg p-[2px]">
-            <form className="flex flex-col md:flex-row gap-4">
+        <div className=" rounded-full">
+            <form className="grid grid-cols-1 md:grid-cols-3 gap-1">
                 <LocationSearch />
                 <DateRangePicker />
-                <Button>Search</Button>
+                <Button size={'searchBar'}>Search</Button>
             </form>
         </div>
     );
@@ -25,7 +25,7 @@ export default function SearchBar({}: Props) {
 
 const LocationSearch = () => {
     const [open, setOpen] = useState(false);
-    const [value, setValue] = useState('');
+    const [selectedValue, setSelectedValue] = useState('');
     const frameworks = [
         {
             value: 'next.js',
@@ -81,7 +81,7 @@ const LocationSearch = () => {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.3,
+                duration: 0.1,
             },
         },
         exit: {
@@ -99,17 +99,18 @@ const LocationSearch = () => {
                 <Button
                     variant={'ghost'}
                     role="combobox"
+                    size={'searchBar'}
                     aria-expanded={open}
                     className={cn(
-                        'justify-between w-[250px] shadow-none text-gray-800 hover:bg-none font-medium border md:border-none border-gray-200',
-                        !value && 'text-muted-foreground'
+                        'bg-white justify-between w-full shadow-none text-gray-800 font-medium border  border-gray-200',
+                        !selectedValue && 'text-muted-foreground'
                     )}
                 >
-                    {value ? frameworks.find((framework) => framework.value === value)?.label : 'Search Location...'}
+                    {selectedValue ? frameworks.find((framework) => framework.value === selectedValue)?.label : 'Search Location...'}
                     <Search className="text-gray-400" />
                 </Button>
             </PopoverTrigger>
-            <PopoverContent sideOffset={6} className="w-[250px] p-0 border-gray-200 rounded-xl">
+            <PopoverContent sideOffset={6} className="w-[720px] md:w-[260px] p-0 border-gray-300">
                 <Command>
                     <CommandInput placeholder="Search Location..." />
                     <CommandList>
@@ -122,14 +123,23 @@ const LocationSearch = () => {
                                         <CommandItem
                                             value={framework.value}
                                             onSelect={(currentValue) => {
-                                                setValue(currentValue === value ? '' : currentValue);
+                                                setSelectedValue(currentValue === selectedValue ? '' : currentValue);
                                                 setOpen(false);
                                             }}
                                         >
                                             <Check
-                                                className={cn('mr-2 h-4 w-4', value === framework.value ? 'opacity-100' : 'opacity-0')}
+                                                className={cn(
+                                                    'mr-2 h-4 w-4',
+                                                    selectedValue === framework.value ? 'opacity-100' : 'opacity-0'
+                                                )}
                                             />
-                                            {framework.label}
+                                            <div className="flex justify-between items-center gap-2">
+                                                {/* <div>{icon}</div> */}
+                                                <div>
+                                                    <p className="font-bold">{framework.label}</p>
+                                                    {/* <p className="font-medium text-gray-500 text-xs">{address}</p> */}
+                                                </div>
+                                            </div>
                                         </CommandItem>
                                     </motion.div>
                                 ))}
@@ -155,11 +165,11 @@ const DateRangePicker = () => {
                     id="date"
                     variant={'ghost'}
                     className={cn(
-                        'justify-between w-[250px] shadow-none text-gray-800 hover:bg-none font-medium border border-gray-200 md:border-none',
+                        'justify-between w-full shadow-none text-gray-800 font-medium border bg-white border-gray-200',
                         !date && 'text-muted-foreground'
                     )}
+                    size={'searchBar'}
                 >
-                    <CalendarIcon />
                     {date?.from ? (
                         date.to ? (
                             <>
@@ -171,9 +181,10 @@ const DateRangePicker = () => {
                     ) : (
                         <span>Pick a date</span>
                     )}
+                    <CalendarIcon />
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-auto p-0 border-gray-200 rounded-xl" align="start">
+            <PopoverContent className="w-full md:w-auto p-0 border-gray-200 rounded-xl" align="start">
                 <Calendar initialFocus mode="range" defaultMonth={date?.from} selected={date} onSelect={setDate} numberOfMonths={2} />
             </PopoverContent>
         </Popover>

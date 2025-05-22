@@ -9,12 +9,12 @@ type Props = {};
 
 export default function Header({}: Props) {
     return (
-        <header className="border-b border-gray-200 shadow-sm">
+        <header className="bg-gray-100 shadow-sm">
             <div className="appLayout flex justify-between items-center py-4 gap-4">
                 <Link href={APP_ROUTE.INDEX}>
                     <Image src={'/logo.png'} width={100} height={40} alt="rento-logo object-contain" />
                 </Link>
-                <SearchBar />
+                {/* <SearchBar /> */}
                 <Button>Signin</Button>
             </div>
         </header>
