@@ -8,6 +8,11 @@ export default function Home() {
             <div className="py-16 appLayout">
                 <SuggestionBlock title="Top places" />
                 <SuggestionBlock title="Top places in Dhaka" />
+                <SuggestionBlock title="Top places in Dhaka" />
+                <SuggestionBlock title="Top places in Dhaka" />
+                <SuggestionBlock title="Top places in Dhaka" />
+                <SuggestionBlock title="Top places in Dhaka" />
+                <SuggestionBlock title="Top places in Dhaka" />
             </div>
         </div>
     );

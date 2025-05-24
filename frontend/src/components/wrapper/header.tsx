@@ -4,16 +4,31 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 type Props = {};
 
 export default function Header({}: Props) {
     const [scrolled, setScrolled] = useState(false);
 
-    useEffect(() => {}, []);
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 1) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
     return (
-        <header className="bg-gray-100 shadow-sm">
-            <div className="appLayout flex justify-between items-center py-4 gap-4">
+        <header className={cn('fixed z-1 w-[100dvw] transition-all duration-300 bg-white shadow-sm ', scrolled ? 'py-2 ' : 'py-4')}>
+            <div className={cn('appLayout flex justify-between items-center gap-4')}>
                 <Link href={APP_ROUTE.INDEX}>
                     <Image src={'/logo.png'} width={100} height={40} alt="rento-logo object-contain" />
                 </Link>

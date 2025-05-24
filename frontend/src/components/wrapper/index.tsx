@@ -6,7 +6,7 @@ export default function Wrapper({ children }: { children: React.ReactNode }) {
     return (
         <main>
             <Header />
-            {children}
+            <div className="pt-18">{children}</div>
             <Footer />
         </main>
     );
