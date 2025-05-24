@@ -1,0 +1,157 @@
+[
+    {
+        "code": "HSTHC6f85bbc4edb74a4ca9f69b18aa8e02e7",
+        "name": "Sea Pearl Beach Resort",
+        "location": "Cox's Bazar, Bangladesh",
+        "description": "Luxurious beachfront resort with breathtaking sea views and top-notch spa services.",
+        "starRating": 5,
+        "userRating": 5,
+        "totalUserReviews": 431,
+        "pricePerNight": 180,
+        "amenities": [
+            "Beachfront",
+            "Swimming Pool",
+            "Spa",
+            "Free WiFi",
+            "Restaurant"
+        ],
+        "image": "https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/promotion/agoda-2564409-60592569-839740.jpg"
+    },
+    {
+        "code": "HSTHC78827502770045d89677ddd4fc739577",
+        "name": "Bhawal Resort & Spa",
+        "location": "Gazipur, Bangladesh",
+        "description": "A serene escape surrounded by nature, offering spa treatments and outdoor activities.",
+        "starRating": 5,
+        "userRating": 5,
+        "totalUserReviews": 264,
+        "pricePerNight": 150,
+        "amenities": [
+            "Nature Trails",
+            "Spa",
+            "Outdoor Pool",
+            "Kids' Play Area",
+            "Free Breakfast"
+        ],
+        "image": "https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/promotion/bhawal-resort-spa-20210907174024.jpg"
+    },
+    {
+        "code": "HSTHC664f64946adb4e7bbf36a06e42b74de1",
+        "name": "Grand Sylhet Hotel & Resort",
+        "location": "Sylhet, Bangladesh",
+        "description": "A blend of modern luxury and natural beauty, located in the heart of Sylhet.",
+        "starRating": 5,
+        "userRating": 5,
+        "totalUserReviews": 159,
+        "pricePerNight": 170,
+        "amenities": [
+            "Swimming Pool",
+            "Fitness Center",
+            "Conference Hall",
+            "Airport Shuttle"
+        ],
+        "image": "https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/promotion/267736179_149939317369872_2872125975221274736_n.jpg"
+    },
+    {
+        "code": "HSTHCf4c57d3887974533b7a4ac5ada8dd453",
+        "name": "Sayeman Beach Resort",
+        "location": "Cox's Bazar, Bangladesh",
+        "description": "Modern beachfront resort offering panoramic ocean views and fine dining.",
+        "starRating": 5,
+        "userRating": 5,
+        "totalUserReviews": 453,
+        "pricePerNight": 200,
+        "amenities": [
+            "Beachfront",
+            "Rooftop Restaurant",
+            "Swimming Pool",
+            "Bar"
+        ],
+        "image": "https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/promotion/sayeman_-1.PNG"
+    },
+    {
+        "code": "HSTHCbf614d5d3b894165a354bb817bcb4156",
+        "name": "Seagull Hotels Ltd.",
+        "location": "Cox's Bazar, Bangladesh",
+        "description": "An iconic seafront hotel featuring elegant rooms and premium services.",
+        "starRating": 5,
+        "userRating": 5,
+        "totalUserReviews": 335,
+        "pricePerNight": 160,
+        "amenities": [
+            "Beach Access",
+            "Poolside Bar",
+            "Conference Rooms",
+            "Gym"
+        ],
+        "image": "https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/promotion/rsdtkfyguih.jpeg"
+    },
+    {
+        "code": "HSTHCbdbe9c2477d74ea199dd56b11dc267be",
+        "name": "Best Western Heritage",
+        "location": "Cox's Bazar, Bangladesh",
+        "description": "Comfortable and modern hotel located near the beach, ideal for families.",
+        "starRating": 5,
+        "userRating": 5,
+        "totalUserReviews": 288,
+        "pricePerNight": 140,
+        "amenities": [
+            "Free WiFi",
+            "On-site Restaurant",
+            "Fitness Center",
+            "Kids' Play Area"
+        ],
+        "image": "https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/promotion/best-western-plus-heritage.jpg"
+    },
+    {
+        "code": "HSTHC79c254bc54f547cfb0f0bec47868d680",
+        "name": "Grand Sultan Tea Resort & Golf",
+        "location": "Sreemangal, Bangladesh",
+        "description": "Nestled in tea gardens, this luxury resort offers golf, spa, and nature views.",
+        "starRating": 5,
+        "userRating": 5,
+        "totalUserReviews": 378,
+        "pricePerNight": 220,
+        "amenities": [
+            "Golf Course",
+            "Tea Garden Tours",
+            "Spa",
+            "Swimming Pool"
+        ],
+        "image": "https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/promotion/1.jpg"
+    },
+    {
+        "code": "HSTHC4f5c2a854c294e38b11ad431b06e2c24",
+        "name": "Ocean Paradise Hotel & Resort",
+        "location": "Cox's Bazar, Bangladesh",
+        "description": "A premium beachside hotel with spacious rooms and excellent service.",
+        "starRating": 5,
+        "userRating": 5,
+        "totalUserReviews": 345,
+        "pricePerNight": 185,
+        "amenities": [
+            "Beach Access",
+            "Infinity Pool",
+            "Spa",
+            "Sea View Rooms"
+        ],
+        "image": "https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/promotion/030420190232061855c7cf0965ad8a.jpg"
+    },
+    {
+        "code": "HSTHC2af9b09dffee45ffa40afab34c3df7b0",
+        "name": "Dream Square Resort",
+        "location": "Gazipur, Bangladesh",
+        "description": "A family-friendly resort surrounded by lush greenery and tranquil lakes.",
+        "starRating": 5,
+        "userRating": 5,
+        "totalUserReviews": 324,
+        "pricePerNight": 130,
+        "amenities": [
+            "Lake View",
+            "Outdoor Activities",
+            "BBQ Facilities",
+            "Playground"
+        ],
+        "image": "https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/promotion/369785529_305623735457322_3320508981205518508_n.jpg"
+    }
+]
