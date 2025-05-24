@@ -6,7 +6,7 @@ export default function Home() {
         <div>
             <Hero />
             <div className="py-16 appLayout">
-                <SuggestionBlock title="Stay near Eden Gardens" />
+                <SuggestionBlock title="Top places" />
             </div>
         </div>
     );

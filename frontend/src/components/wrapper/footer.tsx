@@ -21,7 +21,7 @@ export default function Footer({}: Props) {
                     {/* Explore */}
                     <div>
                         <h4 className="font-semibold mb-4">Explore</h4>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2 font-medium">
                             <li>
                                 <Link href="#" className="hover:underline">
                                     Top Destinations
@@ -48,7 +48,7 @@ export default function Footer({}: Props) {
                     {/* Support */}
                     <div>
                         <h4 className="font-semibold mb-4">Support</h4>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2 font-medium">
                             <li>
                                 <Link href="#" className="hover:underline">
                                     Help Center
@@ -75,7 +75,7 @@ export default function Footer({}: Props) {
                     {/* Legal & Social */}
                     <div>
                         <h4 className="font-semibold mb-4">Legal</h4>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2 font-medium">
                             <li>
                                 <Link href="#" className="hover:underline">
                                     Terms of Service
