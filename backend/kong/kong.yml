@@ -1,0 +1,21 @@
+_format_version: '3.0'
+
+services:
+    - name: auth-service
+      url: http://host.docker.internal:8001
+      routes:
+          - name: auth
+            paths:
+                - /auth
+    - name: booking-service
+      url: http://host.docker.internal:8002
+      routes:
+          - name: booking
+            paths:
+                - /booking
+    - name: listing-service
+      url: http://host.docker.internal:8003
+      routes:
+          - name: listing
+            paths:
+                - /listing
