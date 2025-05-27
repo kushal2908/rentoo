@@ -1,0 +1,35 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mysql"
+    url      = env("DB_URL")
+}
+
+model Listing {
+    id               String        @id @default(cuid())
+    userId           String // Host who created the listing
+    title            String
+    shortDescription String // Short description for quick overview
+    description      String?
+    pricePerNight    Float
+    location         String
+    city             String
+    country          String
+    maxGuests        Int
+    minNights        Int?
+    amenities        String // Comma-separated list of amenities
+    images           String // Comma-separated list of image URLs
+    status           ListingStatus @default(ACTIVE)
+
+    // Tracking
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+enum ListingStatus {
+    ACTIVE
+    INACTIVE
+    ARCHIVED
+}

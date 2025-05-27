@@ -87,7 +87,7 @@ const signInService = async (req: Request, res: Response): Promise<any> => {
         })
         .json({
             message: 'Login successful',
-            data: { firstName: user.firstName, lastName: user.lastName, email: user.email },
+            data: { firstName: user.firstName, lastName: user.lastName, email: user.email, userId: user.id, avatar: user.avatar },
         });
 };
 
