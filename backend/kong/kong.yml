@@ -19,3 +19,10 @@ services:
           - name: listing
             paths:
                 - /listing
+
+plugins:
+    - name: rate-limiting
+      service: auth-service
+      config:
+          minute: 60
+          hour: 1000
