@@ -7,72 +7,23 @@ datasource db {
     url      = env("DB_URL")
 }
 
-// ENUMS
-enum Role {
-    USER
-    ADMIN
-    MODERATOR
-    GUEST
-    SUPER_ADMIN
+model Booking {
+    id         String        @id @default(cuid())
+    userId     String
+    listingId  String
+    checkIn    DateTime
+    checkOut   DateTime
+    noOfPerson Int
+    totalPrice Float
+    status     BookingStatus @default(CONFIRMED)
+    createdAt  DateTime      @default(now())
+
+    //index to prevent duplicate bookings for the same listing and user at the same check-in/check-out time
+    @@index([userId, listingId, checkIn, checkOut])
 }
 
-enum UserAccountStatus {
-    ACTIVE
-    INACTIVE
-    PENDING
-    SUSPENDED
-}
-
-enum VerificationStatus {
-    PENDING
-    VERIFIED
-    REJECTED
-}
-
-enum VerificationType {
-    ACCOUNT_VERIFICATION
-    PASSWORD_RESET
-}
-
-enum AuthStatus {
-    SIGNED_IN
-    SIGNED_OUT
-}
-
-model User {
-    id                      String                    @id @default(cuid())
-    firstName               String?
-    lastName                String?
-    email                   String                    @unique
-    phone                   String?                   @unique
-    password                String
-    role                    Role                      @default(USER)
-    status                  UserAccountStatus         @default(ACTIVE)
-    avatar                  String?
-    createdAt               DateTime                  @default(now())
-    updatedAt               DateTime                  @updatedAt
-    authHistory             AuthHistory[]
-    AuthVerificationHistory AuthVerificationHistory[]
-}
-
-model AuthHistory {
-    id          Int        @id @default(autoincrement())
-    userId      String
-    user        User       @relation(fields: [userId], references: [id])
-    status      AuthStatus @default(SIGNED_IN)
-    ip          String
-    device      String
-    signedInAt  DateTime   @default(now())
-    signedOutAt DateTime?
-}
-
-model AuthVerificationHistory {
-    id               Int              @id @default(autoincrement())
-    userId           String
-    verificationType VerificationType @default(ACCOUNT_VERIFICATION)
-    verificationCode String
-    issuedAt         DateTime         @default(now())
-    expiredAt        DateTime
-    verifiedAt       DateTime?
-    user             User             @relation(fields: [userId], references: [id])
+enum BookingStatus {
+    CONFIRMED
+    CANCELLED
+    COMPLETED
 }

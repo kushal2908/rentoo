@@ -1,18 +1,5 @@
-import bcrypt from 'bcrypt';
 import { Response } from 'express';
-
-/**
- * Hashes a given password using bcrypt.
- *
- * @param password - The password to be hashed as a string.
- * @returns The hashed password as a string.
- */
-export const hashPassword = (password: string) => {
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(password, salt);
-    return hash;
-};
-
+import jwt from 'jsonwebtoken';
 /**
  * Sends a successful response with a given message and optional data.
  *
@@ -44,4 +31,17 @@ export const ERROR_RESPONSE = (res: Response, msg: string, data?: any) => {
         message: msg,
         data,
     });
+};
+
+export const getUserIdFromToken = (req: any) => {
+    const token = req.cookies?.accessToken;
+    if (!token) return null;
+
+    const decodedToken = jwt.decode(req.cookies.accessToken);
+    if (decodedToken && typeof decodedToken === 'object') {
+        const userId = decodedToken.data?.userId;
+        return userId;
+    }
+
+    return null;
 };

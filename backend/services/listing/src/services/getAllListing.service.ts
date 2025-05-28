@@ -5,13 +5,10 @@ import { prisma } from '../prisma';
 export default async function getAllListingService(req: Request, res: Response): Promise<any> {
     const { city, country } = req.query;
 
-    if (!city && !country) {
-        return ERROR_RESPONSE(res, 'City or country must be provided');
-    }
     const listing = await prisma.listing.findMany({
         where: {
-            city: city ? String(city) : undefined,
-            country: country ? String(country) : undefined,
+            city: city as string,
+            country: country as string,
         },
     });
 

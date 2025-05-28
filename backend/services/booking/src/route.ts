@@ -1,5 +1,6 @@
 import { Router } from 'express';
-import { refreshController, signinController, signoutController, signupController } from './controller';
+import { cancelBookingController, createBookingController, getBookingsByListingController, myBookingController } from './controller';
+import { protectedRoute } from './auth.middleware';
 
 /**
  * @description This is the service router for the auth service.
@@ -7,9 +8,9 @@ import { refreshController, signinController, signoutController, signupControlle
  */
 
 const serviceRouter = Router();
-serviceRouter.post('/signin', signinController);
-serviceRouter.post('/signup', signupController);
-serviceRouter.post('/signout', signoutController);
-serviceRouter.get('/refresh', refreshController);
+serviceRouter.post('/create', createBookingController);
+serviceRouter.get('/my-booking/:id', protectedRoute, myBookingController);
+serviceRouter.get('/cancel-booking/:id', cancelBookingController);
+serviceRouter.get('/listing/:id', getBookingsByListingController);
 
 export default serviceRouter;
