@@ -1,7 +1,13 @@
 import { NextFunction, Request, Response } from 'express';
 import { BookingDTO } from '../dto/dto';
 import { ERROR_RESPONSE } from '../_lib/utils';
-import { cancelBookingService, createBookingService, getBookingsByListingService, myBookingService } from '../services';
+import {
+    cancelBookingService,
+    createBookingService,
+    getBookingsByListingService,
+    getSearchGlobalBookingService,
+    myBookingService,
+} from '../services';
 
 /**
  * Handles the creation of a new booking.
@@ -52,6 +58,16 @@ export const getBookingsByListingController = async (req: Request, res: Response
         const { id } = req.params;
         if (!id) return ERROR_RESPONSE(res, 'No params has been set');
         const response = await getBookingsByListingService(req, res);
+        return response;
+    } catch (error) {
+        next(error);
+    }
+};
+export const getSearchGlobalBookingController = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+    try {
+        const data = req.query;
+        if (!data) return ERROR_RESPONSE(res, 'No params has been set');
+        const response = await getSearchGlobalBookingService(req, res);
         return response;
     } catch (error) {
         next(error);

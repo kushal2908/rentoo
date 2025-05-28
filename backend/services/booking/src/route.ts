@@ -1,5 +1,11 @@
 import { Router } from 'express';
-import { cancelBookingController, createBookingController, getBookingsByListingController, myBookingController } from './controller';
+import {
+    cancelBookingController,
+    createBookingController,
+    getBookingsByListingController,
+    getSearchGlobalBookingController,
+    myBookingController,
+} from './controller';
 import { protectedRoute } from './auth.middleware';
 
 /**
@@ -12,5 +18,6 @@ serviceRouter.post('/create', createBookingController);
 serviceRouter.get('/my-booking/:id', protectedRoute, myBookingController);
 serviceRouter.get('/cancel-booking/:id', cancelBookingController);
 serviceRouter.get('/listing/:id', getBookingsByListingController);
+serviceRouter.get('/searchGlobal', getSearchGlobalBookingController);
 
 export default serviceRouter;
