@@ -24,18 +24,23 @@ const getSearchGlobalBooking = async (req: Request, res: Response): Promise<any>
             console.log(err);
         });
 
-    // Check date availability
-    const checkAvailableListing = await prisma.booking.findMany({
+    // Check listing is booked on that checkin date
+    const checkListingBooked = await prisma.booking.findMany({
         where: {
-            listingId: getListing?.map((d: any) => d?.id).toString(','),
+            // listingId: getListing?.map((d: any) => d?.id).toString(','),
+            listingId: getListing[0].id,
             checkIn: {
-                equals: starDate,
+                gte: new Date(`${starDate}T00:00:00.000Z`),
+                lte: new Date(`${starDate}T23:59:59.999Z`),
             },
-            checkOut: endDate,
+            // checkOut: endDate,
         },
     });
-    console.log(checkAvailableListing);
-    return SUCCESS_RESPONSE(res, 'success', getListing);
+
+    // filter out the listing that are not available in all listing
+    const result = getListing?.filter((allList: any) => checkListingBooked.map((bookedList: any) => bookedList.listingId === allList.id));
+
+    return SUCCESS_RESPONSE(res, 'success', result);
 };
 
 export default getSearchGlobalBooking;

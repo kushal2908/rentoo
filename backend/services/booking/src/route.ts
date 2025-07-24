@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { protectedRoute } from './auth.middleware';
 import {
     cancelBookingController,
     createBookingController,
@@ -6,7 +7,6 @@ import {
     getSearchGlobalBookingController,
     myBookingController,
 } from './controller';
-import { protectedRoute } from './auth.middleware';
 
 /**
  * @description This is the service router for the auth service.

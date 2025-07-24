@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
-import { BookingDTO } from '../dto/dto';
 import { ERROR_RESPONSE } from '../_lib/utils';
+import { BookingDTO } from '../dto/dto';
 import {
     cancelBookingService,
     createBookingService,

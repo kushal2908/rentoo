@@ -26,13 +26,13 @@ export default async function SuggestionBlock({ title }: Props) {
                     {seed?.map((d: any) => (
                         <CarouselItem key={d?.code} className="basis-1/2 md:basis-1/4 lg:basis-1/5 ">
                             <Link href="#">
-                                <div className="relative bg-gray-200 mb-2 rounded-xl">
+                                <div className="relative bg-gray-200 mb-2 rounded-xl group overflow-hidden">
                                     <Image
                                         src={d?.image}
                                         alt=""
                                         width={300}
-                                        height={200} // This sets an intrinsic size, but let's override it with CSS below
-                                        className="rounded-xl w-full h-36 object-cover "
+                                        height={200}
+                                        className="rounded-xl w-full h-36 object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-primary/0 opacity-60 rounded-xl"></div>
 
@@ -48,7 +48,7 @@ export default async function SuggestionBlock({ title }: Props) {
                                     </div>
                                 </div>
 
-                                <div className="">
+                                <div className="hover:text-primary transition-transform duration-300 ease-in-out">
                                     <p className="text-xs font-bold">{d?.name}</p>
                                     <p className="text-xs text-gray-600">{d?.location}</p>
                                     <div className="flex gap-2 mt-1">

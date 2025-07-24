@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { createListingController, getAllListingController, getListingController } from './controller';
 import multer from 'multer';
 import path from 'path';
 import { protectedRoute } from './auth.middleware';
+import { createListingController, destinationSearchController, getAllListingController, getListingController } from './controller';
 /**
  * @description This is the service router for the auth service.
  * It handles the routes for user authentication.
@@ -21,4 +21,5 @@ const serviceRouter = Router();
 serviceRouter.get('/search', getAllListingController);
 serviceRouter.post('/create', upload.array('images', 5), protectedRoute, createListingController);
 serviceRouter.get('/:id', getListingController);
+serviceRouter.get('/destinationSearch', destinationSearchController);
 export default serviceRouter;

@@ -1,13 +1,13 @@
 'use client';
-import React, { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Calendar } from '@/components/ui/calendar';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Button } from '@/components/ui/button';
-import { CalendarIcon, Check, ChevronsUpDown, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { addDays, format } from 'date-fns';
-import { Calendar } from '@/components/ui/calendar';
+import { format } from 'date-fns';
 import { AnimatePresence, motion } from 'framer-motion';
+import { CalendarIcon, Check, Search } from 'lucide-react';
+import React, { useState } from 'react';
 import { DateRange } from 'react-day-picker';
 type Props = {};
 
@@ -138,6 +138,7 @@ const LocationSearch = () => {
                                                 <div>
                                                     <p className="font-bold">{framework.label}</p>
                                                     {/* <p className="font-medium text-gray-500 text-xs">{address}</p> */}
+                                                    <p className="font-medium text-gray-500 text-xs">Dhaka, Bangladesh</p>
                                                 </div>
                                             </div>
                                         </CommandItem>
