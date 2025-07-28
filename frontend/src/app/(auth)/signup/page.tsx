@@ -31,37 +31,8 @@ export default function page() {
     };
     return (
         <Form {...form}>
+            {' '}
             <form onSubmit={form.handleSubmit((data) => onSubmit(data))} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <FormField
-                        control={form.control}
-                        name="firstName"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>First name</FormLabel>
-                                <FormControl>
-                                    <Input placeholder="First name" {...field} />
-                                </FormControl>
-
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={form.control}
-                        name="lastName"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Last name</FormLabel>
-                                <FormControl>
-                                    <Input placeholder="Last name" {...field} />
-                                </FormControl>
-
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                </div>
                 <FormField
                     control={form.control}
                     name="email"
@@ -105,7 +76,7 @@ export default function page() {
                     )}
                 />
                 <Button type="submit" className="w-full">
-                    Signin
+                    Signup
                 </Button>
             </form>
         </Form>

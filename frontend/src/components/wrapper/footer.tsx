@@ -20,25 +20,25 @@ export default function Footer({}: Props) {
 
                     {/* Explore */}
                     <div>
-                        <h4 className="font-semibold mb-4">Explore</h4>
+                        <h4 className="font-semibold text-primary mb-4">Explore</h4>
                         <ul className="space-y-2 font-medium">
                             <li>
-                                <Link href="#" className="hover:underline">
+                                <Link href="#" className="hover:text-primary">
                                     Top Destinations
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="hover:underline">
+                                <Link href="#" className="hover:text-primary">
                                     Experiences
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="hover:underline">
+                                <Link href="#" className="hover:text-primary">
                                     New Listings
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="hover:underline">
+                                <Link href="#" className="hover:text-primary">
                                     Weekly Deals
                                 </Link>
                             </li>
@@ -47,25 +47,25 @@ export default function Footer({}: Props) {
 
                     {/* Support */}
                     <div>
-                        <h4 className="font-semibold mb-4">Support</h4>
+                        <h4 className="font-semibold text-primary mb-4">Support</h4>
                         <ul className="space-y-2 font-medium">
                             <li>
-                                <Link href="#" className="hover:underline">
+                                <Link href="#" className="hover:text-primary">
                                     Help Center
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="hover:underline">
+                                <Link href="#" className="hover:text-primary">
                                     Cancellation Options
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="hover:underline">
+                                <Link href="#" className="hover:text-primary">
                                     Trust & Safety
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="hover:underline">
+                                <Link href="#" className="hover:text-primary">
                                     Contact Us
                                 </Link>
                             </li>
@@ -74,20 +74,20 @@ export default function Footer({}: Props) {
 
                     {/* Legal & Social */}
                     <div>
-                        <h4 className="font-semibold mb-4">Legal</h4>
+                        <h4 className="font-semibold text-primary mb-4">Legal</h4>
                         <ul className="space-y-2 font-medium">
                             <li>
-                                <Link href="#" className="hover:underline">
+                                <Link href="#" className="hover:text-primary">
                                     Terms of Service
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="hover:underline">
+                                <Link href="#" className="hover:text-primary">
                                     Privacy Policy
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="hover:underline">
+                                <Link href="#" className="hover:text-primary">
                                     Cookies
                                 </Link>
                             </li>

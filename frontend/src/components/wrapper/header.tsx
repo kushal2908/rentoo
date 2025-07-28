@@ -37,7 +37,7 @@ export default function Header() {
         };
     }, []);
     return (
-        <header className={cn('fixed z-10 w-[100dvw] transition-all duration-300 bg-white shadow-sm ', scrolled ? 'py-2 ' : 'py-4')}>
+        <header className={cn('fixed z-2 w-[100dvw] transition-all duration-300 bg-white shadow-sm py-4')}>
             <div className={cn('appLayout flex justify-between items-center gap-4')}>
                 <Link href={APP_ROUTE.INDEX}>
                     <Image src={'/logo.png'} width={100} height={40} alt="rento-logo object-contain" />
@@ -66,17 +66,26 @@ export default function Header() {
 }
 
 const UserDropDownMenu = () => {
+    const userData = JSON.parse(localStorage.getItem('user') || '{}');
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger className="flex justify-between items-center gap-2 focus:outline-none cursor-pointer">
-                <p className="text-sm font-semibold">Username</p>
+                <div className="text-right">
+                    <p className="text-sm font-semibold text-slate-800">{userData.firstName + ' ' + userData.lastName}</p>
+                    <p className="text-xs font-semibold text-slate-600">{userData.email}</p>
+                </div>
                 <Avatar>
-                    <AvatarImage src="https://github.com/shadcn.png" />
+                    <AvatarImage src={userData?.avatar || 'https://github.com/shadcn.png'} />
                 </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-                <DropdownMenuItem>Profile</DropdownMenuItem>
-                <DropdownMenuItem>Billing</DropdownMenuItem>
+                <Link href={APP_ROUTE.PROFILE + `/${userData.userId}`}>
+                    <DropdownMenuItem>Profile</DropdownMenuItem>
+                </Link>
+                <Link href={APP_ROUTE.MY_ORDERS + `/${userData.userId}`}>
+                    <DropdownMenuItem>My Orders</DropdownMenuItem>
+                </Link>
                 <DropdownMenuItem>Team</DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>

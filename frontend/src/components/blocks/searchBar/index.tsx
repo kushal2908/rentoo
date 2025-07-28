@@ -13,7 +13,7 @@ type Props = {};
 
 export default function SearchBar({}: Props) {
     return (
-        <div className=" rounded-full">
+        <div className="rounded-full">
             <form className="grid grid-cols-1 md:grid-cols-3 gap-1">
                 <LocationSearch />
                 <DateRangePicker />
@@ -155,8 +155,8 @@ const LocationSearch = () => {
 
 const DateRangePicker = () => {
     const [date, setDate] = React.useState<DateRange | undefined>({
-        from: new Date(),
-        to: new Date(),
+        from: undefined,
+        to: undefined,
     });
 
     return (
@@ -186,7 +186,7 @@ const DateRangePicker = () => {
                 </Button>
             </PopoverTrigger>
             <PopoverContent className="w-full md:w-auto p-0 border-gray-200 rounded-xl" align="start">
-                <Calendar initialFocus mode="range" defaultMonth={date?.from} selected={date} onSelect={setDate} numberOfMonths={2} />
+                <Calendar mode="range" defaultMonth={date?.from} selected={date} onSelect={setDate} numberOfMonths={2} />
             </PopoverContent>
         </Popover>
     );
