@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
 import createListingService from '../services/createListing.service';
-import destinationSearchService from '../services/destinationSearch.service';
 import getAllListingService from '../services/getAllListing.service';
 import getListingService from '../services/getLisitng.service';
+import { getLocationSearchService } from '../services/getLocationSearch.service';
 
 export const getAllListingController = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     try {
@@ -30,9 +30,10 @@ export const getListingController = async (req: Request, res: Response, next: Ne
         next(error);
     }
 };
-export const destinationSearchController = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+
+export const getLocationSearchController = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     try {
-        const response = await destinationSearchService(req, res);
+        const response = await getLocationSearchService(req, res);
         return response;
     } catch (error) {
         next(error);

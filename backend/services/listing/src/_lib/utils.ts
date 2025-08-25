@@ -1,5 +1,7 @@
 import { Response } from 'express';
 import jwt from 'jsonwebtoken';
+import multer from 'multer';
+import path from 'path';
 
 export const SUCCESS_RESPONSE = (res: Response, msg: string, data?: any) => {
     return res.status(200).json({
@@ -38,3 +40,15 @@ export const getUserIdFromToken = (req: any) => {
 
     return null;
 };
+
+// Multer configuration
+
+const storage = multer.diskStorage({
+    destination: 'uploads/',
+    filename: (req, file, cb) => {
+        const ext = path.extname(file.originalname); // Get file extension
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+        cb(null, uniqueSuffix + ext);
+    },
+});
+export const upload = multer({ storage });

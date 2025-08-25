@@ -2,10 +2,10 @@
 import useAuth from '@/hooks/use-auth';
 import { redirect } from 'next/navigation';
 
-export default function layout() {
+export default function Layout() {
     const isAuthenticated = useAuth();
-    if (isAuthenticated) {
-        return redirect('/');
+    if (!isAuthenticated) {
+        return redirect('/signin');
     }
 
     return null;

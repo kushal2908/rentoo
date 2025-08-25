@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { redirect, usePathname } from 'next/navigation';
 import React from 'react';
 
-export default function layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
     const isAuthenticated = useAuth();
     if (isAuthenticated) {

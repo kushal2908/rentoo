@@ -8,16 +8,13 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
 import { signinAction } from './actions';
-import useAuth from '@/hooks/use-auth';
 
 // Schema
 const formSchema = z.object({
     email: z.string().email({ message: 'Email is required' }),
     password: z.string().min(1, { message: 'Password is required' }),
 });
-export default function page() {
-    const ath = useAuth();
-    console.log(ath);
+export default function SigninPage() {
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
