@@ -6,18 +6,21 @@ export const getLocationSearchService = async (req: Request, res: Response): Pro
     const { search } = req.query as { search: string };
     const locationList = await prisma.listing.findMany({
         where: {
-            OR: [{ city: { contains: search } }, { country: { contains: search } }, { location: { contains: search } }],
+            OR: [{ city: { contains: search } }, { country: { contains: search } }],
         },
         select: {
             id: true,
             city: true,
             country: true,
-            location: true,
         },
     });
 
     if (!locationList || locationList.length === 0) {
         return ERROR_RESPONSE(res, 'No locations found');
     }
-    return SUCCESS_RESPONSE(res, 'Locations fetched successfully', locationList);
+
+    const repeatedLocationsFiltered = locationList.filter(
+        (location, index, self) => index === self.findIndex((l) => l.city === location.city && l.country === location.country)
+    );
+    return SUCCESS_RESPONSE(res, 'Locations fetched successfully', repeatedLocationsFiltered);
 };

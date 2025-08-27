@@ -1,12 +1,10 @@
-import SearchBar from '@/components/blocks/searchBar';
+import HomePageSearch from '@/components/blocks/home-page-search';
 
-type Props = {};
-
-export default function Hero({}: Props) {
+export default function Hero() {
     return (
-        <div className="bg-gray-100 min-h-[ 00px] relative flex justify-center items-center py-24 px-4">
-            <div className="bg-white w-full  md:w-6xl mx-auto p-4 rounded-lg shadow ">
-                <SearchBar />
+        <div className="bg-gray-100 min-h-[100px] relative flex justify-center items-center py-24 px-4">
+            <div className="bg-white w-full md:w-6xl mx-auto p-4 rounded-lg shadow">
+                <HomePageSearch />
             </div>
         </div>
     );
